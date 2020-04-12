@@ -26,10 +26,10 @@ function writePassword() {
       }
       //password criteria identifier
     if (passwordLength >= 8 && passwordLength <= 128) {
-    const lowerCaseSelector = confirm("Would you like to include 'lowercase letters' in your password?")
-    const upperCaseSelector = confirm("Would you like to include 'uppercase letters' in your password?")
-    const numberSelector = confirm("Would you like to include 'numbers' in your password?")
-    const specialSelector = confirm("Would you like to include 'special characters' in your password?")
+    const lowerCaseSelector = confirm("Password criteria: Would you like to include 'lowercase letters' in your password?")
+    const upperCaseSelector = confirm("Password criteria: Would you like to include 'uppercase letters' in your password?")
+    const numberSelector = confirm("Password criteria: Would you like to include 'numbers' in your password?")
+    const specialSelector = confirm("Password criteria: Would you like to include 'special characters' in your password?")
 
     let preDefined = [lowLettersList, highLettersList, numbersList, specialCharsList]
     let criteria = [lowerCaseSelector, upperCaseSelector, numberSelector, specialSelector];
@@ -45,7 +45,7 @@ function writePassword() {
         alert("no criteria selected, please start again and select minimum one criteria")
       }
     }
-    console.log(criteria)
+ 
     for (let ii = 0; ii < 4; ii++) {
       
       if (criteria[ii] == true) {
