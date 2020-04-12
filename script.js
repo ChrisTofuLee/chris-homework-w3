@@ -129,22 +129,28 @@ function writePassword() {
     }
     for (let io = criteria.length-1; io--;) {
       if (criteria[io] === false) criteria.splice(io, 1);
+      
     }
-  
-    console.log(criteria)
-//password shuffler + generator
-      const shuffler = highLettersList.sort(() => 0.5 - Math.random());
+    let criteriaMerged = criteria[0].concat(criteria[1], criteria[2], criteria[3])
+    
+    console.log(criteriaMerged)
 
-      let shufflePassword = []
-      for (let ii = 0; ii < passwordLength; ii++) {
-        shufflePassword.push(shuffler[ii])
-      }
+    console.log(criteria)
+
+//password shuffler + generator
+  const shuffler = criteriaMerged.sort(() => 0.5 - Math.random());
+ 
+      let shufflePassword = shuffler.slice(0, passwordLength);
+      console.log(shuffler)
+
+      console.log(shufflePassword)
       const finalPass = shufflePassword.join("")
       console.log(finalPass)
-    }
+      alert(finalPass)
+
+      
+    } 
 }
-
-
 function finalPassword () {}
 
 
