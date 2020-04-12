@@ -134,11 +134,15 @@ function writePassword() {
     let criteriaMerged = criteria[0].concat(criteria[1], criteria[2], criteria[3])
     
     console.log(criteriaMerged)
-
     console.log(criteria)
+    const criteriaMString = criteriaMerged.toString()
+    let criteriaStringMulti = criteriaMString.repeat(4)
+    const criteriaFinal = criteriaStringMulti.split("")
+
+
 
 //password shuffler + generator
-  const shuffler = criteriaMerged.sort(() => 0.5 - Math.random());
+  const shuffler = criteriaFinal.sort(() => 0.5 - Math.random());
  
       let shufflePassword = shuffler.slice(0, passwordLength);
       console.log(shuffler)
