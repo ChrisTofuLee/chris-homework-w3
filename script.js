@@ -85,6 +85,8 @@ generateBtn.addEventListener("click", writePassword);
 
 
 function writePassword() {
+
+  //password length identifier
   const passwordLength = prompt("please enter length of password between 8 and 128");
   const passLenInt = parseInt(passwordLength);
     
@@ -92,50 +94,56 @@ function writePassword() {
      
       }else {
       alert("Outside of suggested length, please start again and enter a number between 8 and 128")
-            
+     
       }
+      //password criteria identifier
     if (passwordLength >= 8 && passwordLength <= 128) {
     const lowerCaseSelector = confirm("Password Criteria to include: lower case")
     const upperCaseSelector = confirm("Password Criteria to include: upper case")
     const numberSelector = confirm("Password Criteria to include: numbers")
     const specialSelector = confirm("Password Criteria to include: special characters")
-    
+
+    let preDefined = [lowLettersList, highLettersList, numbersList, specialCharsList]
     let criteria = [lowerCaseSelector, upperCaseSelector, numberSelector, specialSelector];
     let falseCount = 0
 
+// match selected criteria to predefined list
     for (let i = 0; i < 4; i++) {
       if (criteria[i] == false) {
         falseCount++
       }
-
+     
       if (falseCount == 4) {
         alert("no criteria selected, please start again and select minimum one criteria")
       }
     }
     console.log(criteria)
-    let finalCriteriaList = [];
-    for (let i = 0; i < 4; i++) {
-      if (criteria[i] == true) {
-      finalCriteriaList.push(i)}
-      const lowerCaseSelector = lowLettersList
-      const upperCaseSelector = highLettersList
-      const numberSelector = numbersList
-      const specialSelector = specialCharsList
-
-      console.log(finalCriteriaList)
+    for (let ii = 0; ii < 4; ii++) {
+      
+      if (criteria[ii] == true) {
+        criteria[ii] = preDefined[ii]
       }
-
+      
+// remove false statements from list
+      console.log(criteria)
+    }
+    for (let io = criteria.length-1; io--;) {
+      if (criteria[io] === false) criteria.splice(io, 1);
+    }
+  
+    console.log(criteria)
+//password shuffler + generator
       const shuffler = highLettersList.sort(() => 0.5 - Math.random());
 
       let shufflePassword = []
-      for (let ii = 0; ii < 6; ii++) {
+      for (let ii = 0; ii < passwordLength; ii++) {
         shufflePassword.push(shuffler[ii])
       }
       const finalPass = shufflePassword.join("")
       console.log(finalPass)
-      }
+    }
 }
-}
+
 
 function finalPassword () {}
 
@@ -214,4 +222,20 @@ function writePassword() {
     }
 
 }
+
+
+ for (let i = 0; i < 4; i++) {
+      if (criteria[i] == false) {
+        falseCount++
+      }
+     
+      if (falseCount == 4) {
+        alert("no criteria selected, please start again and select minimum one criteria")
+      }
+    }
+    console.log(criteria)
+    for (let ii = 0; ii < 4; ii++) {
+      if (criteria[ii] == true) {
+      criteria[ii] = preDefined[ii]
+    }
 */
